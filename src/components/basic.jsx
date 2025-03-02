@@ -129,7 +129,7 @@ const Basic = () => {
               </div>
             </div>
 
-            <div className="card-footer mt-3 bg-secondary">
+            <div className="card-footer mt-3 bg-primary">
               <div className="row">
                 <div className="text-center">
                   <button className="btn btn-danger" onClick={save}> 
