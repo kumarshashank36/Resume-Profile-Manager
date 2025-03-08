@@ -1,7 +1,7 @@
 import LeftNav from "../navigation"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-
+import swal from "sweetalert"
 
 const Contact = ()=>{
 
@@ -25,7 +25,7 @@ const Contact = ()=>{
 
         let data = {type: "contact", info: contactinfo}
         dispatch(data)
-        alert("Contact Details uploaded successfully..!")
+        swal("Save Success","Your Contact details saved successfully...", "success")
     }
 
     return(

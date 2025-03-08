@@ -1,6 +1,7 @@
 import LeftNav from "../navigation"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import swal from "sweetalert"
 
 const Skill = ()=>{
 
@@ -16,7 +17,7 @@ const Skill = ()=>{
 
         let data = {type:"skills", info: skillinfo}
         dispatch(data)
-        alert("submitted..!")
+        swal("Save Success","Your Skill details saved successfully...", "success")
     }
     
 

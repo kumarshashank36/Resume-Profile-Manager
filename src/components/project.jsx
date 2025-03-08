@@ -1,6 +1,7 @@
 import LeftNav from "../navigation"
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import swal from "sweetalert"
 
 const Project = ()=>{
 
@@ -22,7 +23,7 @@ const Project = ()=>{
 
         let data = {type:"project", info: projinfo}
         dispatch(data)
-        alert("working..!")
+        swal("Save Success","Your Project details saved successfully...", "success")
     }
 
     return(
