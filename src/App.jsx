@@ -29,7 +29,7 @@ function App(){
               </li>
 
               <li className="nav-item me-3">
-                <Link className="nav-link active" to="/contact"> <i className="fa fa-contact"> Contact </i> </Link>
+                <Link className="nav-link active" to="/contact"> <i className="fa fa-headphone"> Contact </i> </Link>
               </li>
 
               <li className="nav-item me-3">

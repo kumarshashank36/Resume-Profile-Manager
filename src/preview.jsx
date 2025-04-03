@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
+import swal from "sweetalert"
 
 const FinalPreview = ()=>{
     let basicdata = useSelector(state=>state.MyBasic)
@@ -8,6 +9,61 @@ const FinalPreview = ()=>{
     let experdata = useSelector(state=>state.MyExper)
     let projdata = useSelector(state=>state.MyProject)
     let skilldata = useSelector(state=>state.MySkill)
+
+    const save1 = ()=>{
+        let mydata = {
+            "basic":basicdata,
+            "education":edudata,
+            "contact":contactdata,
+            "experience":experdata,
+            "project":projdata,
+            "skill":skilldata
+        }
+        
+        let url = "http://localhost:1234/userapi"
+        let postdata = {
+            headers:{'content-type':'application/json'},
+            method:'post',
+            body:JSON.stringify(mydata)
+        }
+
+        fetch(url, postdata)
+        .then(response=>response.json())
+        .then(info=>{
+            swal("Details Submitted", "Your details submitted to server..", "success")
+            setTimeout(()=>{window.location.reload()}, 3000)
+
+        })
+    }
+
+
+
+    const save = ()=>{
+        let mydata = {
+            "basic":basicdata,
+            "education":edudata,
+            "contact":contactdata,
+            "experience":experdata,
+            "project":projdata,
+            "skill":skilldata
+        }
+        
+        let url = "https://cybotrix.com/liveapi/api/save"
+        let postdata = {
+            headers:{'content-type':'application/json'},
+            method:'post',
+            body:JSON.stringify({"details":mydata})
+        }
+
+        fetch(url, postdata)
+        .then(response=>response.text())
+        .then(info=>{
+            swal("Profile submitted", "Your Profile submitted, we will contact you soon..", "success")
+            setTimeout(()=>{window.location.reload()}, 3000)
+
+        })
+    }
+
 
     return(
         <div className="container mt-4">
@@ -231,7 +287,7 @@ const FinalPreview = ()=>{
 
 
                 <div className="col-xl-12 text-center">
-                    <button className="btn btn-danger">
+                    <button className="btn btn-danger" onClick={save}>
                         Submit My Details <i className="fa fa-arrow-right"></i>
                     </button>
                 </div>
